@@ -1,62 +1,59 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: gilroy;
-    font-family: "Caveat", cursive;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style:normal;
-}
-html,
-body {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: gilroy;
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
-.intro{
+html,
+body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro {
   position: absolute;
   color: rgb(239, 83, 83);
   top: 4%;
   font-size: 2rem;
-
 }
-.intro span{
+
+.intro span {
   font-size: 3.5rem;
 }
 
-.info{
+.info {
   position: absolute;
   bottom: 5%;
   left: 43%;
 }
 
-
-
-.gamescreen{
-
+.gamescreen {
   background-color: white;
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
-.gameboard{
+
+.gameboard {
   border: 4px solid rgb(255, 125, 125);
   width: 50%;
   height: 50%;
   display: grid;
-  grid-template-columns: repeat(28,1fr);
-  grid-template-rows: repeat(28,1fr);
- 
-  
+  grid-template-columns: repeat(28, 1fr);
+  grid-template-rows: repeat(28, 1fr);
 }
-.reset{
+
+.reset {
   position: absolute;
   height: 3vw;
   width: 10vw;
@@ -69,20 +66,23 @@ body {
   border-radius: 10vw;
 }
 
-.reset:hover{
+.reset:hover {
   transform: scale(1.1);
   border: 2px solid black;
   background-color: royalblue;
   color: white;
 }
 
-
 @keyframes pulse {
-  from { transform: scale(1); }
-  to   { transform: scale(1.15); }
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.15);
+  }
 }
 
-.snake{
+.snake {
   background-color: purple;
 }
 
@@ -93,16 +93,14 @@ body {
   animation: pulse 0.3s infinite alternate;
 }
 
-.food{
+.food {
   width: 100%;
   height: 100%;
   background-color: orangered;
   border-radius: 50%;
-
 }
 
-.score{
-
+.score {
   position: absolute;
   height: 2vw;
   width: 4vw;
@@ -114,9 +112,9 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 10vw;
-
 }
-.sound{
+
+.sound {
   position: absolute;
   height: 4vw;
   width: 4vw;
@@ -128,14 +126,12 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-
 }
 
-input{
+input {
   position: absolute;
   color: black;
   background-color: aquamarine;
-  position: absolute;
   border: 2px solid orangered;
   top: 20%;
   left: 43vw;
@@ -143,16 +139,16 @@ input{
   justify-content: center;
   align-items: center;
   text-align: center;
-  
 }
-.speed{
+
+.speed {
   color: black;
 }
 
-.gameover{
+.gameover {
   display: none;
   position: absolute;
-  background: linear-gradient(pink , white,orangered);
+  background: linear-gradient(pink, white, orangered);
   top: 40%;
   height: 10vw;
   border: 2px solid black;
@@ -160,9 +156,9 @@ input{
   justify-content: center;
   align-items: center;
   border-radius: 5vw;
-
 }
-.gameover .restart{
+
+.gameover .restart {
   background-color: royalblue;
   color: white;
   position: absolute;
@@ -171,23 +167,23 @@ input{
   width: 12vw;
   border-radius: 30vw;
 }
-.gameover .quit{
-   background-color: royalblue;
+
+.gameover .quit {
+  background-color: royalblue;
   color: white;
   position: absolute;
   right: 20%;
-   height: 5vw;
+  height: 5vw;
   width: 12vw;
   border-radius: 30vw;
-  
 }
 
-.tk:hover{
+.tk:hover {
   transform: scale(1.2);
   color: red;
 }
 
-.icon{
+.icon {
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -197,7 +193,7 @@ input{
   bottom: 0;
 }
 
-.navbutton{
+.navbutton {
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -209,7 +205,7 @@ input{
   border-radius: 50%;
 }
 
-.navbutton .arrows{
+.navbutton .arrows {
   height: 3vw;
   width: 3vw;
   border-radius: 50%;
@@ -217,67 +213,72 @@ input{
   justify-content: space-between;
 }
 
-#u{
+/* 🔥 Updated image paths from here 🔽 */
+
+#u {
   position: absolute;
   top: 45%;
   left: 40%;
   border-radius: 50%;
-  background-image: url('src/asset/up-arrow.png');
+  background-image: url('/asset/up-arrow.png');
   background-size: contain;
 }
-#d{
+
+#d {
   position: absolute;
   bottom: 10%;
   left: 40%;
   border-radius: 50%;
-  background-image: url('src/asset/download.png');
+  background-image: url('/asset/download.png');
   background-size: contain;
 }
-#l{
+
+#l {
   position: absolute;
   top: 45%;
   left: 10%;
   border-radius: 50%;
-  background-image: url('src/asset/left-arrow.png');
+  background-image: url('/asset/left-arrow.png');
   background-size: contain;
 }
-#r{
+
+#r {
   position: absolute;
   top: 45%;
   right: 15%;
   border-radius: 50%;
-  background-image: url('src/asset/right-arrow.png');
+  background-image: url('/asset/right-arrow.png');
   background-size: contain;
 }
-.icon .i1{
 
+.icon .i1 {
   height: 3vw;
   width: 3vw;
   border-radius: 50%;
   display: flex;
   justify-content: space-between;
-
 }
 
-#f{
-  background-image: url('src/asset/facebook-logo_4406235.png');
+#f {
+  background-image: url('/asset/facebook-logo_4406235.png');
   background-size: contain;
   background-position: center;
 }
-#g{
-  background-image: url('src/asset/github.png');
+
+#g {
+  background-image: url('/asset/github.png');
   background-size: contain;
   background-color: yellow;
-
 }
-#y{
-  background-image: url('src/asset/youtube_889242.png');
+
+#y {
+  background-image: url('/asset/youtube_889242.png');
   background-size: cover;
   background-position: center;
   border-radius: 0%;
 }
-#s{
-  background-image: url('src/asset/snake_667184.png');
-  background-size: cover;
 
+#s {
+  background-image: url('/asset/snake_667184.png');
+  background-size: cover;
 }
