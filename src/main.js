@@ -1,4 +1,3 @@
-import './style.css';
 
 const gameboard = document.querySelector(".gameboard");
 const reset = document.querySelector(".reset");
