@@ -1,4 +1,3 @@
-
 const gameboard = document.querySelector(".gameboard");
 const reset = document.querySelector(".reset");
 const gameover = document.querySelector(".gameover");
@@ -8,17 +7,14 @@ const score = document.querySelector(".score");
 const sound = document.querySelector(".sound");
 let x = 0;
 
-const snakyy  = document.querySelector("#s");
-snakyy.addEventListener("click",()=>{
-    window.location.href = "snake.html";
+const snakyy = document.querySelector("#s");
+snakyy.addEventListener("click", () => {
+  window.location.href = "snake.html";
+});
 
-})
-
-
-
-const eggeatmusic = new Audio('src/asset/beam-fire-282361.mp3');
-const gameovermusic = new Audio('src/asset/game-over-deep-male-voice-clip-352695.mp3');
-const backgroundmusic = new Audio('src/asset/up-beat-335518.mp3');
+const eggeatmusic = new Audio('/asset/beam-fire-282361.mp3');
+const gameovermusic = new Audio('/asset/game-over-deep-male-voice-clip-352695.mp3');
+const backgroundmusic = new Audio('/asset/up-beat-335518.mp3');
 
 quit.addEventListener("click", () => {
   window.location.href = "thanks.html";
@@ -33,63 +29,48 @@ reset.addEventListener("click", () => {
   window.location.reload();
 });
 
-// sound.addEventListener("click",()=>{
-//   if (backgroundmusic.pause){
-//     backgroundmusic.currentTime=0
-//     backgroundmusic.play();
-//   }
-//   if(!backgroundmusic.pause){
-//     backgroundmusic.pause();
-//   }
-// })
-
 sound.addEventListener("click", () => {
   if (backgroundmusic.paused) {
     backgroundmusic.currentTime = 0;
     backgroundmusic.play();
-    sound.innerHTML=""
-    sound.innerHTML = `<img src="src/asset/sound(1).png" style="width:100%; height:100%;">`;
+    sound.innerHTML = "";
+    sound.innerHTML = `<img src="/asset/sound(1).png" style="width:100%; height:100%;">`;
   } else {
-     sound.innerHTML=""
+    sound.innerHTML = "";
     backgroundmusic.pause();
-    sound.innerHTML = `<img src="src/asset/volume-off.png" style="width:100%; height:100%;">`;
+    sound.innerHTML = `<img src="/asset/volume-off.png" style="width:100%; height:100%;">`;
   }
 });
-
 
 let direction = { x: 0, y: 0 };
 let snakebody = [{ x: 5, y: 5 }];
 let headPos = snakebody[0];
 
+// Navigation buttons
+const up = document.getElementById("u");
+const down = document.getElementById("d");
+const left = document.getElementById("l");
+const right = document.getElementById("r");
 
+up.addEventListener("click", () => {
+  direction.x = 0;
+  direction.y = -1;
+});
+down.addEventListener("click", () => {
+  direction.x = 0;
+  direction.y = 1;
+});
+left.addEventListener("click", () => {
+  direction.x = -1;
+  direction.y = 0;
+});
+right.addEventListener("click", () => {
+  direction.x = 1;
+  direction.y = 0;
+});
 
-   // Get references to the divs
-    const up = document.getElementById("u");
-    const down = document.getElementById("d");
-    const left = document.getElementById("l");
-    const right = document.getElementById("r");
-
-    up.addEventListener("click",()=>{
-       direction.x = 0;
-      direction.y = -1;
-    })
-    down.addEventListener("click",()=>{
-       direction.x = 0;
-      direction.y = 1;
-    })
-    left.addEventListener("click",()=>{
-       direction.x = -1;
-      direction.y = 0;
-    })
-    right.addEventListener("click",()=>{
-       direction.x = 1;
-      direction.y = 0;
-    })
-
-
+// Keyboard controls
 window.addEventListener("keydown", function (e) {
-  // 🎵 Start background music on first key press
-
   if (e.key === "ArrowUp") {
     direction.x = 0;
     direction.y = -1;
@@ -126,7 +107,6 @@ function move() {
   const collision = () => {
     for (let i = 2; i < snakebody.length; i++) {
       if (snakebody[i].x === headPos.x && snakebody[i].y === headPos.y) {
-        // 🎵 Stop background music and play game over sound
         backgroundmusic.pause();
         backgroundmusic.currentTime = 0;
         gameovermusic.play();
@@ -152,48 +132,33 @@ function move() {
     x += 1;
     score.innerHTML = x;
 
-    // 🎵 Play egg eat sound
     eggeatmusic.currentTime = 0;
     eggeatmusic.play();
-
   } else {
     snakebody.pop();
   }
 
-  if (headPos.x > 28) { headPos.x = 1; }
+  if (headPos.x > 28) headPos.x = 1;
   if (headPos.x < 1) headPos.x = 28;
   if (headPos.y > 28) headPos.y = 1;
   if (headPos.y < 1) headPos.y = 28;
 
-  // snakebody.forEach((e) => {
-  //   let Head = document.createElement("div");
-  //   Head.classList.add("snake");
-  //   Head.style.gridColumnStart = e.x;
-  //   Head.style.gridRowStart = e.y;
-  //   gameboard.appendChild(Head);
-  // });
-
   snakebody.forEach((e, index) => {
-  let part = document.createElement("div");
-  part.classList.add("snake");
-  if (index === 0) {
-    part.classList.add("head");  // add extra class to the head
-  }
-  part.style.gridColumnStart = e.x;
-  part.style.gridRowStart = e.y;
-  gameboard.appendChild(part);
-});
-
+    let part = document.createElement("div");
+    part.classList.add("snake");
+    if (index === 0) {
+      part.classList.add("head");
+    }
+    part.style.gridColumnStart = e.x;
+    part.style.gridRowStart = e.y;
+    gameboard.appendChild(part);
+  });
 
   let food = document.createElement("div");
   food.classList.add("food");
   food.style.gridColumnStart = food_position.x;
   food.style.gridRowStart = food_position.y;
   gameboard.appendChild(food);
-
- 
 }
-
-
 
 let Interval = setInterval(move, 100);
