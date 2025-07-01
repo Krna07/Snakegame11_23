@@ -282,3 +282,93 @@ input {
   background-image: url('/asset/snake_667184.png');
   background-size: cover;
 }
+
+
+@media (max-width: 768px) {
+  .intro {
+    position: absolute;
+    font-size: 0.7rem;
+    top: 0%;
+    right: 2%;
+  }
+ 
+  .intro span {
+    position: relative;
+    font-size: 1.5rem;
+    right: 1%;
+  }
+
+  .gameboard {
+    width: 90%;
+    height: 50%;
+    grid-template-columns: repeat(28, 1fr);
+    grid-template-rows: repeat(28, 1fr);
+  }
+
+  .reset {
+    left: 20%;
+    height: 8vw;
+    width: 30vw;
+    font-size: 1rem;
+  }
+
+  .score, .sound {
+    height: 6vw;
+    width: 12vw;
+    font-size: 1rem;
+  }
+
+  .gameover {
+    height: auto;
+    width: 90%;
+    padding: 2vw;
+    border-radius: 5vw;
+  }
+
+  .gameover .restart, .gameover .quit {
+    width: 40vw;
+    height: 10vw;
+    font-size: 1rem;
+  }
+
+  .navbutton {
+    position: absolute;
+    bottom:8%;
+    width: 40vw;
+    height: 40vw;
+    border-right: 0.5vw solid red;
+  }
+
+  .navbutton .arrows {
+    width: 8vw;
+    height: 8vw;
+  }
+
+  #u, #d, #l, #r {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+  }
+
+  .icon {
+    width: 50vw;
+    height: auto;
+    bottom: 2%;
+  }
+
+  .icon .i1 {
+    height: 5vw;
+    width: 5vw;
+  }
+
+  input {
+    width: 60vw;
+    top: 22%;
+    left: 20vw;
+    font-size: 1rem;
+  }
+}
+
+
+
